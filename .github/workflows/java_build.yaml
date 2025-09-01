@@ -17,3 +17,5 @@ jobs:
       - name: Deploy artifact
         working-directory: java-app
         run: mvn deploy
+        env:
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
