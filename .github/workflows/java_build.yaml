@@ -12,8 +12,8 @@ jobs:
     steps:
       - uses: ./.github/actions/actions@main
         with:
-            - java_version: '21'
-            - skip_test: true
+            java_version: '21'
+            skip_test: true
 
    build-java-app-with-test:
     runs-on: ubuntu-latest
@@ -23,5 +23,5 @@ jobs:
     steps:
       - uses: ./.github/actions/actions@main
         with:
-            - java_version: '21'
-            - skip_test: false
+            java_version: '21'
+            skip_test: false
