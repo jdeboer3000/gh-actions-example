@@ -1,0 +1,17 @@
+name: Build Java app
+
+on: push
+
+jobs:
+   build-java-app:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin' # See 'Supported distributions' for available options
+          java-version: '21'
+      - name: Run the Maven verify phase
+        run: mvn install
+      - name: Deploy artifact
+        run: mvn deploy
