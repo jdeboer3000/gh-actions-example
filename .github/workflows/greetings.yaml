@@ -1,0 +1,12 @@
+name: greetings
+
+on: [issue]
+
+jobs:
+  hello_world:
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+        - name: Run a one-line script
+          run: echo I am in a training session
+
