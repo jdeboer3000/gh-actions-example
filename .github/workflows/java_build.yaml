@@ -11,7 +11,7 @@ jobs:
         working-directory: ./java-app
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/actions@main
+      - uses: .github/actions/actions@main
         with:
             java_version: '21'
             skip_test: true
@@ -23,7 +23,7 @@ jobs:
         working-directory: ./java-app
     steps:
       - uses: actions/checkout@v4
-      - uses: ./.github/actions/actions@main
+      - uses: .github/actions/actions@main
         with:
             java_version: '21'
             skip_test: false
