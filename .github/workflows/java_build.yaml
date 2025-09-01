@@ -1,24 +1,27 @@
 name: Build Java app
 
 on: 
-   push:
    workflow_dispatch:
 
 jobs:
-   build-java-app:
+   build-java-app-without-test:
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: ./java-app
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-java@v4
+      - uses: ./.github/actions/actions@main
         with:
-          distribution: 'temurin' # See 'Supported distributions' for available options
-          java-version: '21'
-      - name: Run the Maven verify phase
-        run: mvn --batch-mode install
-      - name: Deploy artifact
-        run: mvn --batch-mode deploy
-        env:
-           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            - java_version: '21'
+            - skip_test: true
+
+   build-java-app-with-test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./java-app
+    steps:
+      - uses: ./.github/actions/actions@main
+        with:
+            - java_version: '21'
+            - skip_test: false
