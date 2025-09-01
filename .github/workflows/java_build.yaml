@@ -10,6 +10,7 @@ jobs:
       run:
         working-directory: ./java-app
     steps:
+      - uses: actions/checkout@v4
       - uses: ./.github/actions/actions@main
         with:
             java_version: '21'
