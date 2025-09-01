@@ -5,8 +5,11 @@ on: [issues]
 jobs:
   hello_world:
       runs-on: ubuntu-latest
+      permissions:
+        issues: write
+        pull-requests: write
       steps:
-        - uses: actions/checkout@v4
-        - name: Run a one-line script
-          run: echo I am in a training session
+        - uses: actions/first-interaction@v1
+          with:
+            issue-message: "I am going to process your request soon"
 
